@@ -40,7 +40,7 @@ ENTRYPOINT ["python3", "cybersec_audit.py"]
 CMD ["--help"]
 
 # Metadata
-LABEL maintainer="emreayvacik4@gmail.com"
+LABEL maintainer=""
 LABEL description="CyberSecAudit - Comprehensive Cybersecurity Audit Tool"
 LABEL version="1.0.0"
 LABEL org.opencontainers.image.source="https://github.com/warth1/cybersecaudit"
