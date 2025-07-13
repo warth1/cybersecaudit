@@ -125,7 +125,7 @@ python cybersec_audit.py 192.168.1.1 --password-check "TestPassword123!"
 
 ## 🔒 Güvenlik
 
-Güvenlik açığı bulduysanız, lütfen security@example.com adresine e-posta gönderin.
+Güvenlik açığı bulduysanız, lütfen "" adresine e-posta gönderin.
 Detaylı bilgi için [SECURITY.md](SECURITY.md) dosyasına bakın.
 
 ## 📝 Lisans
