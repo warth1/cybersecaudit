@@ -19,7 +19,7 @@ setup(
     name="cybersecaudit",
     version="1.0.0",
     author="Warth",
-    author_email="emreayvacik4@gmail.com",
+    author_email="",
     description="Kapsamlı Siber Güvenlik Denetim Aracı",
     long_description=long_description,
     long_description_content_type="text/markdown",
