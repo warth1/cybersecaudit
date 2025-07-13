@@ -1,0 +1,22 @@
+# CyberSecAudit Requirements
+# Siber Güvenlik Denetim Aracı Gereksinimleri
+
+# Temel Python kütüphaneleri (çoğu built-in)
+# requests>=2.25.1    # Web istekleri için (isteğe bağlı)
+# beautifulsoup4>=4.9.3  # Web scraping için (isteğe bağlı)
+# scapy>=2.4.4       # Gelişmiş network analizi için (isteğe bağlı)
+
+# Not: Bu araç çoğunlukla Python'un built-in kütüphanelerini kullanır:
+# - socket (network işlemleri)
+# - threading (paralel işlem)
+# - subprocess (sistem komutları)
+# - json (veri serileştirme)
+# - hashlib (hash işlemleri)
+# - re (regex)
+# - datetime (zaman işlemleri)
+# - concurrent.futures (thread pool)
+# - argparse (komut satırı argümanları)
+
+# Gelişmiş özellikler için isteğe bağlı:
+colorama>=0.4.4      # Windows renk desteği
+python-nmap>=0.6.1   # Nmap entegrasyonu (isteğe bağlı)
