@@ -6,23 +6,23 @@
 
 Kapsamlı Siber Güvenlik Denetim Aracı | Comprehensive Cybersecurity Audit Tool
 
-## 🚀 Özellikler
+## 🚀 Özellikler | Features
 
-- 🔍 Gelişmiş Port Tarama
-- 🛡️ Güvenlik Açığı Analizi
-- 🔐 Şifre Güvenlik Kontrolü
-- 📊 Detaylı Raporlama
-- 🐳 Docker Desteği
+- 🔍 Gelişmiş Port Tarama |Advanced Port Scanning
+- 🛡️ Güvenlik Açığı Analizi | Vulnerability Analysis
+- 🔐 Şifre Güvenlik Kontrolü |  Password Security Check
+- 📊 Detaylı Raporlama | Detailed Reporting
+- 🐳 Docker Desteği | Docker Support
 
-## ⚙️ Kurulum
+## ⚙️ Kurulum | Installation
 
-### 1. Repository'i Klonlayın
+### 1. Repository'i Klonlayın | Clone the repository
 ```bash
 git clone https://github.com/warth1/cybersecaudit.git
 cd cybersecaudit
 ```
 
-### 2. Python Sanal Ortam Oluşturun
+### 2. Python Sanal Ortam Oluşturun | Create a Python virtual environment
 ```bash
 # Linux/macOS
 python3 -m venv venv
@@ -33,18 +33,18 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### 3. Gereksinimleri Yükleyin
+### 3. Gereksinimleri Yükleyin | Install the requirements
 ```bash
 pip install -r requirements_file.txt
 ```
 
-### 4. Aracı Çalıştırılabilir Yapın
+### 4. Aracı Çalıştırılabilir Yapın | Make the tool executable
 ```bash
 # Linux/macOS
 chmod +x cybersec_audit.py
 ```
 
-### Docker ile Kurulum
+### Docker ile Kurulum | Installation via Docker is also supported
 ```bash
 # Image oluştur
 docker build -t cybersecaudit .
@@ -53,14 +53,14 @@ docker build -t cybersecaudit .
 docker-compose up -d
 ```
 
-## 💻 Kullanım
+## 💻 Kullanım | Usage
 
-### Temel Kullanım
+### Temel Kullanım | Basic Usage
 ```bash
-python cybersec_audit.py [hedef]
+python cybersec_audit.py [target]
 ```
 
-### Parametreler
+### Parametreler | Parameters
 ```
 -h, --help            Yardım menüsünü göster
 -p, --ports PORTS     Taranacak portlar (örn: 80,443,22)
@@ -69,7 +69,7 @@ python cybersec_audit.py [hedef]
 --password-check      Şifre güvenlik analizi
 ```
 
-### Örnek Komutlar
+### Örnek Komutlar | Example Commands
 ```bash
 # Belirli portları tara
 python cybersec_audit.py 192.168.1.1 -p 80,443,22,21
@@ -84,7 +84,7 @@ python cybersec_audit.py 192.168.1.1 -o my_scan_report.json
 python cybersec_audit.py 192.168.1.1 --password-check "TestPassword123!"
 ```
 
-## 📋 Örnek Çıktı
+## 📋 Örnek Çıktı | Sample Output
 
 ```json
 {
@@ -103,14 +103,14 @@ python cybersec_audit.py 192.168.1.1 --password-check "TestPassword123!"
 }
 ```
 
-## 🔧 Gereksinimler
+## 🔧 Gereksinimler | Requirements
 
-### Minimum Sistem Gereksinimleri
+### Minimum Sistem Gereksinimleri | Minimum System Requirements
 - Python 3.6 veya üzeri
 - 2GB RAM
 - 1GB boş disk alanı
 
-### Desteklenen İşletim Sistemleri
+### Desteklenen İşletim Sistemleri | Supported Operating Systems
 - Linux (Ubuntu, Debian, CentOS)
 - macOS
 - Windows 10/11
