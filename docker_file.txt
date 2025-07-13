@@ -1,0 +1,46 @@
+# CyberSecAudit Docker Image
+FROM python:3.9-slim
+
+# Sistem bağımlılıklarını yükle
+RUN apt-get update && apt-get install -y \
+    ping \
+    nmap \
+    net-tools \
+    && rm -rf /var/lib/apt/lists/*
+
+# Çalışma dizini oluştur
+WORKDIR /app
+
+# Gereksinimler dosyasını kopyala ve bağımlılıkları yükle
+COPY requirements_file.txt .
+RUN pip install --no-cache-dir -r requirements_file.txt
+
+# Uygulama dosyalarını kopyala
+COPY cybersec_audit.py .
+COPY setup.py .
+COPY README.md .
+COPY license_file.md .
+
+# Non-root kullanıcı oluştur
+RUN useradd -m -u 1000 cybersec && \
+    chown -R cybersec:cybersec /app
+
+# Kullanıcı değiştir
+USER cybersec
+
+# Çalışma dizinini ayarla
+WORKDIR /app
+
+# Sağlık kontrolü
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD python3 -c "import cybersec_audit; print('OK')" || exit 1
+
+# Varsayılan komut
+ENTRYPOINT ["python3", "cybersec_audit.py"]
+CMD ["--help"]
+
+# Metadata
+LABEL maintainer="emreayvacik4@gmail.com"
+LABEL description="CyberSecAudit - Comprehensive Cybersecurity Audit Tool"
+LABEL version="1.0.0"
+LABEL org.opencontainers.image.source="https://github.com/warth1/cybersecaudit"

@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  cybersecaudit:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: cybersecaudit:latest
+    container_name: cybersecaudit
+    
+    # Network ayarları
+    network_mode: host
+    
+    # Güvenlik ayarları
+    security_opt:
+      - no-new-privileges:true
+    
+    # Kaynak sınırları
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 128M
+    
+    # Ortam değişkenleri
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+    
+    # Volümler
+    volumes:
+      - ./reports:/app/reports:rw
+      - ./logs:/app/logs:rw
+    
+    # Çalışma dizini
+    working_dir: /app
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Komut override (örnek kullanım)
+    # command: ["192.168.1.1", "-p", "80,443,22", "-o", "reports/scan_report.json"]
+    
+    # Logging
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Gelişmiş özellikler için Redis (isteğe bağlı)
+  redis:
+    image: redis:7-alpine
+    container_name: cybersecaudit-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    
+  # Web arayüzü için (gelecek sürümler)
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.web
+    image: cybersecaudit-web:latest
+    container_name: cybersecaudit-web
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis://redis:6379
+    profiles:
+      - web
+
+volumes:
+  redis-data:
+    driver: local
+
+networks:
+  default:
+    name: cybersecaudit-network
+    driver: bridge
