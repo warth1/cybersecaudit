@@ -8,7 +8,7 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within CyberSecAudit, please send an email to security@example.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within CyberSecAudit, please send an email to warth1214@gmail.com. All security vulnerabilities will be promptly addressed.
 
 Please include the following information in your report:
 - Description of the vulnerability
